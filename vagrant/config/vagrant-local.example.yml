@@ -20,3 +20,10 @@ memory: 512
 swap: 2048
 
 vmbox: 'bento/ubuntu-16.04'
+
+# proxy settings
+# use it if you have installed vagrant-proxyconf
+proxy_use: false
+proxy_http: "http://host:port/"
+proxy_https: "http://host:port/"
+no_proxy: "localhost,127.0.0.1,.example.com"

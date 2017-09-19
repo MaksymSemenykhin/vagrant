@@ -20,6 +20,13 @@ options = YAML.load_file config[:local]
 Vagrant.configure(2) do |config|
   # select the box
   config.vm.box = options['vmbox']
+    
+  if Vagrant.has_plugin?("vagrant-proxyconf") && options['proxy_use'] == true
+     config.proxy.http     = options['proxy_http']
+     config.proxy.https    = options['proxy_https']
+     config.proxy.no_proxy = options['no_proxy']
+  end
+    
 
   # should we ask about box updates?
   config.vm.box_check_update = options['box_check_update']

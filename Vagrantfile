@@ -18,6 +18,11 @@ options = YAML.load_file config[:local]
 
 # vagrant configurate
 Vagrant.configure(2) do |config|
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = "http://proxy.local:8080"
+    config.proxy.https    = "http://proxy.local:8080"
+    config.proxy.no_proxy = "127.0.0.1,*.local,172.16.*.*,<local>"
+  end
   # select the box
   config.vm.box = options['vmbox']
     

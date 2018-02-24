@@ -33,7 +33,7 @@ apt-get upgrade -yqq
 
 print_title "Install additional software"
 apt-get install git nginx -yqq
-apt-get install git curl vim mc htop -yqq
+apt-get install git curl vim mc htop jq -yqq
 
 
 

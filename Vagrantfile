@@ -1,10 +1,6 @@
 require 'yaml'
 require 'fileutils'
 
-domains = {
-    main: 'linux.local',
-}
-
 config = {
   local: './vagrant/config/vagrant-local.yml',
   example: './vagrant/config/vagrant-local.example.yml'
@@ -15,6 +11,7 @@ FileUtils.cp config[:example], config[:local] unless File.exist?(config[:local])
 # read config
 options = YAML.load_file config[:local]
 
+File.open('./vagrant/config/options', 'w') { |file| file.write(options.to_json) }
 
 # vagrant configurate
 Vagrant.configure(2) do |config|
@@ -37,14 +34,14 @@ Vagrant.configure(2) do |config|
     # machine memory size
     vb.memory = options['memory']
     # machine name (for VirtualBox UI)
-    vb.name = options['machine_name']
+    vb.name = options['domains']['frontend']
   end
 
   # machine name (for vagrant console)
-  config.vm.define options['machine_name']
+  config.vm.define options['domains']['frontend']
 
   # machine name (for guest machine console)
-  config.vm.hostname = options['machine_name']
+  config.vm.hostname = options['domains']['frontend']
 
   # network settings
   config.vm.network 'private_network', ip: options['ip']
@@ -61,7 +58,7 @@ Vagrant.configure(2) do |config|
   config.hostmanager.manage_host        = true
   config.hostmanager.ignore_private_ip  = false
   config.hostmanager.include_offline    = true
-  config.hostmanager.aliases            = domains.values
+  config.hostmanager.aliases            = options['domains'].values
 
   # provisioners
   config.vm.provision 'shell', path: './vagrant/provision/once-as-root.sh', args: [
@@ -73,6 +70,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision 'shell', path: './vagrant/provision/always-as-root.sh', run: 'always'
 
   # post-install message (vagrant console)
-  config.vm.post_up_message = "Main URL: http://#{domains[:main]}"
+  config.vm.post_up_message = "
+  Frontend URL: http://" + options['domains']['frontend'] + "\n"
 
 end

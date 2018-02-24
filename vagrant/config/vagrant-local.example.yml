@@ -4,8 +4,8 @@ timezone:  Europe/Kiev
 # Are we need check box updates for every 'vagrant up'?
 box_check_update: false
 
-# Virtual machine name
-machine_name: linux
+domains:
+  frontend: linux.dev
 
 # Virtual machine IP
 ip: 192.168.83.137

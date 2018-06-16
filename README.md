@@ -8,6 +8,7 @@ INSTALLATION REQUIREMENTS
   - VirtualBox
   - Vagrant
   - Vagrant hostmanager pulugin
+  - Vagrant proxyconf pulugin
   - console or terminal
   - 512 Memory 
   
@@ -17,7 +18,7 @@ INSTALLATION
 2. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 3. Install [vagrant](https://www.vagrantup.com/)
 4. Clone into proper folder  
-5. Copy ./vagrant/config/vagrant-local.example.yml as ./vagrant/config/vagrant-local.yml
+5. Copy ./vagrant/config/vagrant-local.example.json as ./vagrant/config/vagrant-local.json
 6. Setup proxy in system variables and restart your console. In needed
 6. Install [vagrant hostmanager pulugin](https://github.com/devopsgroup-io/vagrant-hostmanager)
 7. Install [vagrant proxyconf pulugin](https://github.com/tmatilai/vagrant-proxyconf) if you need to use proxy

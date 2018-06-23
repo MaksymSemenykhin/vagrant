@@ -7,14 +7,11 @@ config = {
   example: './vagrant/config/vagrant-local.example.json'
 }
 
-file = File.read('./vagrant/config/vagrant-local.json')
-data_hash = JSON.parse(file)
-
 
 # copy config from example if local config not exists
 FileUtils.cp config[:example], config[:local] unless File.exist?(config[:local])
 # read config
-options = JSON.parse(file)
+options = JSON.parse(File.read(config[:local]))
 
 # vagrant configurate
 Vagrant.configure(2) do |config|

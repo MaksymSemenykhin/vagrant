@@ -40,5 +40,33 @@ function pause () {
     sleep "$1"s
 }
 
+# @param $1 bash file
+function call () {
+    if [ -z "$1" ]; then
+        print_error "call: empty bash file passed"
+    fi
 
+    mkdir /home/vagrant/provision/logs -p
+    touch /home/vagrant/provision/logs/$1.log
+
+    print_title "Calling $1.sh script"
+    print_info "Provision-script user: `whoami`" &> /home/vagrant/provision/logs/$1.log
+
+    if [ "$debug" == true ]; then
+        bash /home/vagrant/provision/installations/$1.sh
+    else
+        bash /home/vagrant/provision/installations/$1.sh &>> /home/vagrant/provision/logs/$1.log
+    fi
+
+    local status=$?
+    print_info "script return code $status " &>> /home/vagrant/provision/logs/$1.log
+
+    if [ $status -ne 0 ]; then
+        if [ "$debug" == false ]; then
+            cat /home/vagrant/provision/logs/$1.log
+        fi
+        print_error "non zero return code"
+    fi
+
+}
 

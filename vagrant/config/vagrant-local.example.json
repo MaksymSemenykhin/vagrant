@@ -15,7 +15,7 @@
   },
   "software":{
     "additional":" vim mc htop",
-    "main":"git curl nginx",
-    "arguments":"qq"
-  }
+    "main":"git curl nginx"
+  },
+  "debug":false
 }

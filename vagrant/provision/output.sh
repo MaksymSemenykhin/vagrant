@@ -37,3 +37,11 @@ print_title () {
   printf "${LightGreen}--> $1${NC} | $(date +%H:%M)\n"
   echo -e " "
 }
+
+
+# @param $1 text
+print_title () {
+  echo -e " "
+  printf "${LightGreen}--> $1${NC} | $(date +%H:%M)\n"
+  echo -e " "
+}

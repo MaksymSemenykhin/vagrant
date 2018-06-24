@@ -2,3 +2,4 @@
 .vagrant/
 vagrant/config/vagrant-local.json
 vagrant/provision/.sudo_as_admin_successful
+vagrant/provision/logs

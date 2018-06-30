@@ -40,6 +40,17 @@ function pause () {
     sleep "$1"s
 }
 
+function internet_connection_check () {
+
+    wget -q --spider http://google.com
+
+    if [ $? -ne 0 ]; then
+        print_error "Look like you don't have internet connection."
+    fi
+
+}
+
+
 # @param $1 bash file
 function call () {
     if [ -z "$1" ]; then

@@ -81,3 +81,8 @@ function call () {
 
 }
 
+function die_if_not_sudo () {
+    if [ "$(whoami)" != "root" ]; then
+        print_error "Sorry, you are not root."
+    fi
+}

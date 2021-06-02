@@ -2,7 +2,7 @@
 source /home/vagrant/provision/output.sh
 
 #== jq installation. Tool that helps to read from json ==
-apt-get install jq -yqq
+sudo apt-get install jq -yqq
 
 #print_title "Vagrant config:"
 #jq '.' /home/vagrant/config/vagrant-local.json

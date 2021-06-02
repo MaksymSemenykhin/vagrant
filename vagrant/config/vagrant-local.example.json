@@ -6,7 +6,7 @@
   "cpus": 1,
   "memory": 512,
   "swap": 2048,
-  "vmbox": "bento/ubuntu-16.04",
+  "vmbox": "bento/ubuntu-20.04",
   "proxy":{
     "enable": false,
     "http": "http://host:port/",

@@ -62,9 +62,9 @@ Vagrant.configure(2) do |config|
   config.hostmanager.aliases            = [options['machine_name']]
 
   # provisioners
-  config.vm.provision 'shell', path: './vagrant/provision/once-as-root.sh'
+  config.vm.provision 'shell', path: './vagrant/provision/once-as-root.sh', privileged: true
   config.vm.provision 'shell', path: './vagrant/provision/once-as-vagrant.sh', args: [], privileged: false
-  config.vm.provision 'shell', path: './vagrant/provision/always-as-root.sh', run: 'always'
+  config.vm.provision 'shell', path: './vagrant/provision/always-as-root.sh', run: 'always', privileged: true
 
 
 end

@@ -57,3 +57,5 @@ EOT
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo usermod -aG docker vagrant
+
+sudo apt-get install docker-compose -y

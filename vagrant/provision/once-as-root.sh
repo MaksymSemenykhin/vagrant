@@ -15,6 +15,12 @@ call additional_software
 call main_software
 call autoremove
 call docker
+call php7.1-fpm
+call composer
+
+
+cd /app/vagrant/provision/docker-compose
+bahs bash ./start-daemon.sh
 
 print_title "Done | once-as-root"
 

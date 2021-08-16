@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  mysql-index:
+    container_name: mysql-index
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'index'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
+    volumes:
+      - ${DATA_PATH}/index/data:/var/lib/mysql

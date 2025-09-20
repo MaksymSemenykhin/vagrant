@@ -1,12 +1,12 @@
 {
-  "timezone":  "Europe/Kiev",
+  "timezone":  "Europe/Kyiv",
   "box_check_update": false,
   "machine_name": "linux.local",
   "ip": "192.168.83.137",
   "cpus": 1,
   "memory": 512,
   "swap": 2048,
-  "vmbox": "bento/ubuntu-20.04",
+  "vmbox": "bento/ubuntu-24.04",
   "proxy":{
     "enable": false,
     "http": "http://host:port/",
@@ -17,5 +17,5 @@
     "additional":" vim mc htop",
     "main":"git curl nginx"
   },
-  "debug":false
+  "debug":true
 }
